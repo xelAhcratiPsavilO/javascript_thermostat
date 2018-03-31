@@ -33,12 +33,12 @@ describe('Thermostat', function() {
     expect(thermostat.getCurrentTemperature()).toEqual(10);
   });
 
-  // it('checks that the temperature is at its minimum', function() {
-  //   for (var i=0; i<10; i++) {
-  //     thermostat.down()
-  //   }
-  //   expect(thermostat.isMinimumTemperature()).toBe(true);
-  // });
+  it('checks that the temperature is at its minimum', function() {
+    for (var i=0; i<10; i++) {
+      thermostat.down()
+    }
+    expect(thermostat.isMinimumTemperature()).toBe(true);
+  });
 
   it('checks that the temperature is no at its minimum', function() {
     for (var i=0; i<9; i++) {

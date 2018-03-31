@@ -11,12 +11,13 @@ Thermostat.prototype.getCurrentTemperature = function() {
 
 Thermostat.prototype.up = function() {
   this.temperature +=1;
-  return this.temperature;
 };
 
 Thermostat.prototype.down = function() {
+  if (this.isMinimumTemperature()) {
+    return;
+  }
   this.temperature -=1;
-  return this.temperature;
 };
 
 Thermostat.prototype.isMinimumTemperature = function() {
