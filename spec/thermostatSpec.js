@@ -26,4 +26,25 @@ describe('Thermostat', function() {
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
+  it('has a minimum limit of 10 degrees', function() {
+    for (var i=0; i<11; i++) {
+      thermostat.down()
+    }
+    expect(thermostat.getCurrentTemperature()).toEqual(10);
+  });
+
+  // it('checks that the temperature is at its minimum', function() {
+  //   for (var i=0; i<10; i++) {
+  //     thermostat.down()
+  //   }
+  //   expect(thermostat.isMinimumTemperature()).toBe(true);
+  // });
+
+  it('checks that the temperature is no at its minimum', function() {
+    for (var i=0; i<9; i++) {
+      thermostat.down()
+    }
+    expect(thermostat.isMinimumTemperature()).toBe(false);
+  });
+
 });

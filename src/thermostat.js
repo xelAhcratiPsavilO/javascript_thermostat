@@ -2,6 +2,7 @@
 
 function Thermostat() {
   this.temperature = 20;
+  this.MINIMUM_TEMPERATURE = 10;
 }
 
 Thermostat.prototype.getCurrentTemperature = function() {
@@ -15,5 +16,9 @@ Thermostat.prototype.up = function() {
 
 Thermostat.prototype.down = function() {
   this.temperature -=1;
-  return this.temperature;  
+  return this.temperature;
+};
+
+Thermostat.prototype.isMinimumTemperature = function() {
+  return this.temperature === this.MINIMUM_TEMPERATURE;
 };
