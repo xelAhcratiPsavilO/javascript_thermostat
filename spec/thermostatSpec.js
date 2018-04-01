@@ -47,7 +47,18 @@ describe('Thermostat', function() {
     expect(thermostat.isMinimumTemperature()).toBe(false);
   });
 
-  it('ti has a power saving mode activated by default', function() {
+  it('has a power saving mode activated by default', function() {
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+
+  it('switches the mode of the power saving', function() {
+    thermostat.switch();
+    expect(thermostat.isPowerSavingModeOn()).toBe(false);
+  });
+
+  it('switches the mode of the power saving twice', function() {
+    thermostat.switch();
+    thermostat.switch();
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
   });
 
