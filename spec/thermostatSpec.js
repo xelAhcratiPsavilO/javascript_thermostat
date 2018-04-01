@@ -47,4 +47,8 @@ describe('Thermostat', function() {
     expect(thermostat.isMinimumTemperature()).toBe(false);
   });
 
+  it('ti has a power saving mode activated by default', function() {
+    expect(thermostat.isPowerSavingModeOn()).toBe(true);
+  });
+
 });
