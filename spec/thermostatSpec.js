@@ -71,7 +71,21 @@ describe('Thermostat', function() {
     });
   });
 
-  it('checks that the temperature is at its maximum', function() {
+  it('checks that the temperature is at its maximum when PMS on', function() {
+    for (var i=0; i<5; i++) {
+      thermostat.up()
+    }
+    expect(thermostat.isMaximumTemperature()).toBe(true);
+  });
+
+  it('checks that the temperature is no at its maximum when PMS on', function() {
+    for (var i=0; i<4; i++) {
+      thermostat.up()
+    }
+    expect(thermostat.isMaximumTemperature()).toBe(false);
+  });
+
+  it('checks that the temperature is at its maximum when PMS off', function() {
     thermostat.switch();
     for (var i=0; i<12; i++) {
       thermostat.up()
@@ -79,7 +93,7 @@ describe('Thermostat', function() {
     expect(thermostat.isMaximumTemperature()).toBe(true);
   });
 
-  it('checks that the temperature is no at its minimum', function() {
+  it('checks that the temperature is no at its maximum when PMS off', function() {
     thermostat.switch();
     for (var i=0; i<11; i++) {
       thermostat.up()
@@ -87,14 +101,14 @@ describe('Thermostat', function() {
     expect(thermostat.isMaximumTemperature()).toBe(false);
   });
 
-  // describe('if power saving mode is off', function() {
-  //   it('the temperature never goes beyond 32 degrees', function() {
-  //     thermostat.switch();
-  //     for (var i = 0; i < 13; i++) {
-  //       thermostat.up();
-  //     }
-  //     expect(thermostat.getCurrentTemperature()).toEqual(32);
-  //   });
-  // });
+  describe('if power saving mode is off', function() {
+    it('the temperature never goes beyond 32 degrees', function() {
+      thermostat.switch();
+      for (var i = 0; i < 13; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.getCurrentTemperature()).toEqual(32);
+    });
+  });
 
 });
