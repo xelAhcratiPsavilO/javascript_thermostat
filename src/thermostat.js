@@ -11,6 +11,9 @@ Thermostat.prototype.getCurrentTemperature = function() {
 };
 
 Thermostat.prototype.up = function() {
+  if (this.temperature === 25 && this.isPowerSavingModeOn()) {
+    return;
+  }
   this.temperature +=1;
 };
 
