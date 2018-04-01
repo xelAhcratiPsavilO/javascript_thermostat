@@ -111,4 +111,10 @@ describe('Thermostat', function() {
     });
   });
 
+  it('resets the temperature to 20 degrees when desired', function() {
+    thermostat.up();
+    thermostat.backToTwenty();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
+
 });
