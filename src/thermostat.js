@@ -7,6 +7,8 @@ function Thermostat() {
   this.MAX_LIMIT_PSM_OFF = 32;
   this.DEFAULT = 20;
   this.powerSavingMode = true;
+  this.MID_USAGE = 18;
+  this.MAX_USAGE = 25;
 }
 
 Thermostat.prototype.getCurrentTemperature = function() {
@@ -51,10 +53,10 @@ Thermostat.prototype.backToTwenty = function() {
 };
 
 Thermostat.prototype.energyUsage = function () {
-  if (this.temperature<18) {
+  if (this.temperature < this.MID_USAGE) {
   return 'low usage'
   }
-  if (this.temperature<26 && this.temperature>17) {
+  if (this.temperature <= this.MAX_USAGE && this.temperature >= this.MID_USAGE) {
   return 'medium usage'
   }
   return 'high usage';
