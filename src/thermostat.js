@@ -49,3 +49,13 @@ Thermostat.prototype.switch = function() {
 Thermostat.prototype.backToTwenty = function() {
   this.temperature = this.DEFAULT
 };
+
+Thermostat.prototype.energyUsage = function () {
+  if (this.temperature<18) {
+  return 'low usage'
+  }
+  if (this.temperature<26 && this.temperature>17) {
+  return 'medium usage'
+  }
+  return 'high usage';
+};
